@@ -10,7 +10,8 @@ def main():
     y = SCREEN_HEIGHT / 2
     updateable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
-    player = Player(x, y).containers(updateable, drawable)
+    player = Player(x, y)
+    player.containers = (updateable, drawable)
     dt = 0
     while True :
         for event in pygame.event.get():
@@ -18,8 +19,10 @@ def main():
                 return
         screen.fill((0, 0, 0))
         dt = clock.tick(60) / 1000
-        player.draw(screen)
-        player.update(dt)
+        for obj in updateable:
+            obj.update(dt)
+        for obj in drawable:
+            obj.draw(screen)
         pygame.display.flip()
 
 
