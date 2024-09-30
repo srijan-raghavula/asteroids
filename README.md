@@ -1,2 +1,2 @@
 # asteroids
-average asteroids game (bootdev guided project)
+average asteroids game for OOP fammiliarity (bootdev guided project)
